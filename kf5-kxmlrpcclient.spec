@@ -1,15 +1,15 @@
-%define		kdeframever	5.39
-%define		qtver		5.3.2
+%define		kdeframever	5.53
+%define		qtver		5.9.0
 %define		kfname		kxmlrpcclient
 #
 Summary:	XML-RPC client library
 Name:		kf5-%{kfname}
-Version:	5.39.0
+Version:	5.53.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	6ab70e1ac35ce0a57cf7dae370818b8c
+# Source0-md5:	130b79df792e0cd4be15a0f9fec54278
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
@@ -67,6 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f libkxmlrpcclient5.lang
 %defattr(644,root,root,755)
 %doc README.md
+/etc/xdg/kxmlrpcclient.categories
+/etc/xdg/kxmlrpcclient.renamecategories
 %attr(755,root,root) %ghost %{_libdir}/libKF5XmlRpcClient.so.5
 %attr(755,root,root) %{_libdir}/libKF5XmlRpcClient.so.*.*
 
