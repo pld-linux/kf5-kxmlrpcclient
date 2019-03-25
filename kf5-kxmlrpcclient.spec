@@ -1,21 +1,22 @@
-%define		kdeframever	5.53
+%define		kdeframever	5.56
 %define		qtver		5.9.0
 %define		kfname		kxmlrpcclient
 #
 Summary:	XML-RPC client library
 Name:		kf5-%{kfname}
-Version:	5.53.0
+Version:	5.56.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	130b79df792e0cd4be15a0f9fec54278
+# Source0-md5:	41ffd8e68e831b6e16ee6608821cd976
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -45,16 +46,14 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 %build
 install -d build
 cd build
-%cmake \
+%cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} -C build/ install \
-        DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang libkxmlrpcclient5 --all-name --with-kde
 
