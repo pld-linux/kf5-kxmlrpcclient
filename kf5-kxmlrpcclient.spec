@@ -1,15 +1,15 @@
-%define		kdeframever	5.59
+%define		kdeframever	5.65
 %define		qtver		5.9.0
 %define		kfname		kxmlrpcclient
 #
 Summary:	XML-RPC client library
 Name:		kf5-%{kfname}
-Version:	5.59.0
+Version:	5.65.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	d0cedf608321c5389709484f864a6146
+# Source0-md5:	c42e7e8f410efc36d38d50426fa03033
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
@@ -66,10 +66,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -f libkxmlrpcclient5.lang
 %defattr(644,root,root,755)
 %doc README.md
-/etc/xdg/kxmlrpcclient.categories
-/etc/xdg/kxmlrpcclient.renamecategories
 %attr(755,root,root) %ghost %{_libdir}/libKF5XmlRpcClient.so.5
 %attr(755,root,root) %{_libdir}/libKF5XmlRpcClient.so.*.*
+%{_datadir}/qlogging-categories5/kxmlrpcclient.categories
+%{_datadir}/qlogging-categories5/kxmlrpcclient.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
@@ -78,3 +78,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/cmake/KF5XmlRpcClient
 %attr(755,root,root) %{_libdir}/libKF5XmlRpcClient.so
 %{qt5dir}/mkspecs/modules/qt_KXmlRpcClient.pri
+
