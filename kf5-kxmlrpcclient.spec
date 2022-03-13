@@ -1,15 +1,15 @@
-%define		kdeframever	5.91
+%define		kdeframever	5.92
 %define		qtver		5.9.0
 %define		kfname		kxmlrpcclient
 #
 Summary:	XML-RPC client library
 Name:		kf5-%{kfname}
-Version:	5.91.0
+Version:	5.92.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/portingAids/%{kfname}-%{version}.tar.xz
-# Source0-md5:	e952784913e584b0764eaa8b277d7394
+# Source0-md5:	a4b2e4249a8f64307cc0c8e4f7bf0de8
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
